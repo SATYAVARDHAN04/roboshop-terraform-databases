@@ -14,22 +14,22 @@ resource "terraform_data" "mongodb" {
     aws_instance.mongodb.id
   ]
 
+  connection {
+    type     = "ssh"      # SSH or WinRM
+    user     = "ec2-user" # Remote username
+    password = "DevOps321"
+    host     = aws_instance.mongodb.private_ip # Remote address
+  }
+
   provisioner "file" {
     source      = "bootstrap.sh"       # Local file/directory to copy
-    destination = "/temp/bootstrap.sh" # Remote path to place file/content
-
-    connection {
-      type     = "ssh"      # SSH or WinRM
-      user     = "ec2-user" # Remote username
-      password = "DevOps321"
-      host     = aws_instance.mongodb.private_ip # Remote address
-    }
+    destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /temp/bootstrap.sh",
-      "sudo sh /temp/bootstrap.sh mongodb"
+      "chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh mongodb"
     ]
   }
 }
@@ -50,22 +50,22 @@ resource "terraform_data" "redis" {
     aws_instance.redis.id
   ]
 
+  connection {
+    type     = "ssh"      # SSH or WinRM
+    user     = "ec2-user" # Remote username
+    password = "DevOps321"
+    host     = aws_instance.redis.private_ip # Remote address
+  }
+
   provisioner "file" {
     source      = "bootstrap.sh"       # Local file/directory to copy
-    destination = "/temp/bootstrap.sh" # Remote path to place file/content
-
-    connection {
-      type     = "ssh"      # SSH or WinRM
-      user     = "ec2-user" # Remote username
-      password = "DevOps321"
-      host     = aws_instance.redis.private_ip # Remote address
-    }
+    destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /temp/bootstrap.sh",
-      "sudo sh /temp/bootstrap.sh redis"
+      "chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh redis"
     ]
   }
 }
@@ -86,22 +86,22 @@ resource "terraform_data" "mysql" {
     aws_instance.mysql.id
   ]
 
+  connection {
+    type     = "ssh"      # SSH or WinRM
+    user     = "ec2-user" # Remote username
+    password = "DevOps321"
+    host     = aws_instance.mysql.private_ip # Remote address
+  }
+
   provisioner "file" {
     source      = "bootstrap.sh"       # Local file/directory to copy
-    destination = "/temp/bootstrap.sh" # Remote path to place file/content
-
-    connection {
-      type     = "ssh"      # SSH or WinRM
-      user     = "ec2-user" # Remote username
-      password = "DevOps321"
-      host     = aws_instance.mysql.private_ip # Remote address
-    }
+    destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /temp/bootstrap.sh",
-      "sudo sh /temp/bootstrap.sh mysql"
+      "chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh mysql"
     ]
   }
 }
@@ -122,22 +122,22 @@ resource "terraform_data" "rabbitmq" {
     aws_instance.rabbitmq.id
   ]
 
+  connection {
+    type     = "ssh"      # SSH or WinRM
+    user     = "ec2-user" # Remote username
+    password = "DevOps321"
+    host     = aws_instance.rabbitmq.private_ip # Remote address
+  }
+
   provisioner "file" {
     source      = "bootstrap.sh"       # Local file/directory to copy
-    destination = "/temp/bootstrap.sh" # Remote path to place file/content
-
-    connection {
-      type     = "ssh"      # SSH or WinRM
-      user     = "ec2-user" # Remote username
-      password = "DevOps321"
-      host     = aws_instance.rabbitmq.private_ip # Remote address
-    }
+    destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /temp/bootstrap.sh",
-      "sudo sh /temp/bootstrap.sh rabbitmq"
+      "chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh rabbitmq"
     ]
   }
 }

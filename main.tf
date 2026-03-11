@@ -3,7 +3,7 @@ resource "aws_instance" "mongodb" {
   ami                    = local.ami
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.mongodb]
-  subnet_id              = local.databse_subnet_id
+  subnet_id              = local.database_subnet_id
   tags = merge(var.common_tags, {
     Name = "${var.project}-${var.environment}-mongodb"
   })
@@ -39,7 +39,7 @@ resource "aws_instance" "redis" {
   ami                    = local.ami
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.redis]
-  subnet_id              = local.databse_subnet_id
+  subnet_id              = local.database_subnet_id
   tags = merge(var.common_tags, {
     Name = "${var.project}-${var.environment}-redis"
   })
@@ -75,7 +75,7 @@ resource "aws_instance" "mysql" {
   ami                    = local.ami
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.mysql]
-  subnet_id              = local.databse_subnet_id
+  subnet_id              = local.database_subnet_id
   tags = merge(var.common_tags, {
     Name = "${var.project}-${var.environment}-mysql"
   })
@@ -111,7 +111,7 @@ resource "aws_instance" "rabbitmq" {
   ami                    = local.ami
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.rabbitmq]
-  subnet_id              = local.databse_subnet_id
+  subnet_id              = local.database_subnet_id
   tags = merge(var.common_tags, {
     Name = "${var.project}-${var.environment}-rabbitmq"
   })

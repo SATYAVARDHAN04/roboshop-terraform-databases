@@ -22,7 +22,7 @@ resource "terraform_data" "mongodb" {
   }
 
   provisioner "file" {
-    source      = "bootstrap.sh"       # Local file/directory to copy
+    source      = "bootstrap.sh"      # Local file/directory to copy
     destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
@@ -58,7 +58,7 @@ resource "terraform_data" "redis" {
   }
 
   provisioner "file" {
-    source      = "bootstrap.sh"       # Local file/directory to copy
+    source      = "bootstrap.sh"      # Local file/directory to copy
     destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
@@ -94,7 +94,7 @@ resource "terraform_data" "mysql" {
   }
 
   provisioner "file" {
-    source      = "bootstrap.sh"       # Local file/directory to copy
+    source      = "bootstrap.sh"      # Local file/directory to copy
     destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 
@@ -130,7 +130,7 @@ resource "terraform_data" "rabbitmq" {
   }
 
   provisioner "file" {
-    source      = "bootstrap.sh"       # Local file/directory to copy
+    source      = "bootstrap.sh"      # Local file/directory to copy
     destination = "/tmp/bootstrap.sh" # Remote path to place file/content
   }
 

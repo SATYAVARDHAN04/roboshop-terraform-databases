@@ -28,9 +28,9 @@ variable "common_tags" {
 }
 
 variable "zone_id" {
-    default = "Z0681877H2AVAURJ6DZ9"
+  default = "Z0681877H2AVAURJ6DZ9"
 }
 
 variable "zone_name" {
-    default = "satyology.site"
+  default = "satyology.site"
 }

@@ -34,6 +34,14 @@ resource "terraform_data" "mongodb" {
   }
 }
 
+resource "aws_route53_record" "mongodb" {
+  zone_id = var.zone_id
+  name    = "mongodb.${var.zone_name}"
+  type    = "A"
+  ttl     = 300
+  records = ["aws_instance.mongodb.private_ip"]
+}
+
 # REDIS
 resource "aws_instance" "redis" {
   ami                    = local.ami
@@ -68,6 +76,14 @@ resource "terraform_data" "redis" {
       "sudo sh /tmp/bootstrap.sh redis"
     ]
   }
+}
+
+resource "aws_route53_record" "redis" {
+  zone_id = var.zone_id
+  name    = "redis.${var.zone_name}"
+  type    = "A"
+  ttl     = 300
+  records = ["aws_instance.redis.private_ip"]
 }
 
 # mysql
@@ -106,6 +122,14 @@ resource "terraform_data" "mysql" {
   }
 }
 
+resource "aws_route53_record" "mysql" {
+  zone_id = var.zone_id
+  name    = "mysql.${var.zone_name}"
+  type    = "A"
+  ttl     = 300
+  records = ["aws_instance.mysql.private_ip"]
+}
+
 # rabbitmq
 resource "aws_instance" "rabbitmq" {
   ami                    = local.ami
@@ -140,4 +164,12 @@ resource "terraform_data" "rabbitmq" {
       "sudo sh /tmp/bootstrap.sh rabbitmq"
     ]
   }
+}
+
+resource "aws_route53_record" "rabbitmq" {
+  zone_id = var.zone_id
+  name    = "rabbitmq.${var.zone_name}"
+  type    = "A"
+  ttl     = 300
+  records = ["aws_instance.rabbitmq.private_ip"]
 }

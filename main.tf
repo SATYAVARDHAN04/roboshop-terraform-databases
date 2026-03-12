@@ -39,7 +39,7 @@ resource "aws_route53_record" "mongodb" {
   name    = "mongodb-${var.environment}.${var.zone_name}"
   type    = "A"
   ttl     = 300
-  records = ["aws_instance.mongodb.private_ip"]
+  records = [aws_instance.mongodb.private_ip]
   allow_overwrite = true
 }
 
@@ -84,7 +84,7 @@ resource "aws_route53_record" "redis" {
   name    = "redis-${var.environment}.${var.zone_name}"
   type    = "A"
   ttl     = 300
-  records = ["aws_instance.redis.private_ip"]
+  records = [aws_instance.redis.private_ip]
   allow_overwrite = true
 }
 
@@ -130,7 +130,7 @@ resource "aws_route53_record" "mysql" {
   name    = "mysql-${var.environment}.${var.zone_name}"
   type    = "A"
   ttl     = 300
-  records = ["aws_instance.mysql.private_ip"]
+  records = [aws_instance.mysql.private_ip]
   allow_overwrite = true
 }
 
@@ -175,6 +175,6 @@ resource "aws_route53_record" "rabbitmq" {
   name    = "rabbitmq-${var.environment}.${var.zone_name}"
   type    = "A"
   ttl     = 300
-  records = ["aws_instance.rabbitmq.private_ip"]
+  records = [aws_instance.rabbitmq.private_ip]
   allow_overwrite = true
 }
